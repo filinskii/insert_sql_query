@@ -13,7 +13,7 @@ sheet = workbook['Лист1']
 
 batch_size = 1000
 rows = [row for row in sheet.iter_rows(values_only=True)]
-sql = "INSERT INTO Data_Analyst.diagnosis (column_1, column_2) VALUES (%s, %s)"
+sql = "INSERT INTO tablename (column_1, column_2) VALUES (%s, %s)"
 for i in range(0, len(rows), batch_size):
     cursor.executemany(sql, rows[i:i+batch_size])
 
